@@ -8,6 +8,7 @@ router.post("/api/transaction", ({body}, res) => {
       res.json(dbTransaction);
     })
     .catch(err => {
+      console.log("hit the transaction post route");
       res.status(404).json(err);
     });
 });
@@ -18,6 +19,7 @@ router.post("/api/transaction/bulk", ({body}, res) => {
       res.json(dbTransaction);
     })
     .catch(err => {
+      console.log("hit the transaction bulk post route");
       res.status(404).json(err);
     });
 });
@@ -29,6 +31,7 @@ router.get("/api/transaction", (req, res) => {
       res.json(dbTransaction);
     })
     .catch(err => {
+      console.log("hit the transaction get route")
       res.status(404).json(err);
     });
 });

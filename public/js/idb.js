@@ -23,7 +23,8 @@ function saveBudgetItem(budgetItem) {
     const transaction = db.transaction(['new_budget_item'], 'readwrite');
     const budgetItemObjectStore = transaction.objectStore('new_budget_item');
     budgetItemObjectStore.add(budgetItem);
-}
+    window.alert("You are currently offline. Your transaction has been saved locally and will update in your account once you connect to the internet.");
+};
 
 function uploadBudgetItem() {
     const transaction = db.transaction(['new_budget_item'], 'readwrite');
@@ -49,6 +50,7 @@ function uploadBudgetItem() {
                     const transaction = db.transaction(['new_budget_item'], 'readwrite');
                     const budgetItemObjectStore = transaction.objectStore('new_budget_item');
                     budgetItemObjectStore.clear();
+                    window.alert("You are now online. Your account has been successfully updated to include the transactions made while you were offline.")
                 })
                 .catch(err => console.log(err));
         }
